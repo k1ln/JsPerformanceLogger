@@ -17,9 +17,8 @@ Compatible with both browser-based and Node.js environments.
 ## Usage
 
 ```javascript
-  pL = new PerformanceLogger("pL"); //Please give constructor Variable Name as string;
-  pL.watch({name of Object}, "{function Name as string}", true);
-  // e.g. pL.watch(window, "someFunc", true);
-  console.log(pL.watchedFunctionsStats);
-  console.log(pL.watchedFunctionsMessages);
+  PerformanceLogger.watch({name of Object}, "{function Name as string}", true);
+  // e.g. PerformanceLogger.watch(window, "someFunc", true);
+  console.log(PerformanceLogger.watchedFunctionsStats);
+  console.log(PerformanceLogger.watchedFunctionsMessages);
 ```
