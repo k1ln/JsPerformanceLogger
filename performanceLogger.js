@@ -4,6 +4,11 @@ class PerformanceLogger {
             this.watchedFunctionsStats = {};
             this.name = name;
             this.hex_chr = '0123456789abcdef'.split('');
+            if (this.isNode()) {
+                this.crypto = require('crypto');
+            } else {
+                this.crypto = window.crypto;
+            }
             if (this.md5('hello') != '5d41402abc4b2a76b9719d911017c592') {
                 this.add32 = function (x, y) {
                     var lsw = (x & 0xFFFF) + (y & 0xFFFF),
@@ -247,14 +252,22 @@ class PerformanceLogger {
 
             let code = parent[funcName].toString();
 
-            //console.log("code", code);
+            console.log("code", code);
             let functionBody = code.substring(code.indexOf("{") + 1, code.lastIndexOf("}"));
-            let functionVariableRegex = new RegExp(`function ${funcName}\((.*)\)`);
-            let match = functionVariableRegex.exec(code);
-
-            if (match) {
-                console.log("variable match:", match[1]);  // Logs the inner part of the function
+            let str = `function ${funcName}(`;
+            let variables;
+            if(code.indexOf(str) === -1) {
+                let str = `${funcName} (`;
+                let functionVariables = code.substring(code.indexOf(str) + str.length, code.indexOf(")"));
+                variables = functionVariables;
+            }else {
+                let functionVariables = code.substring(code.indexOf(str) + str.length, code.indexOf(")"));
+                variables = functionVariables;
+                console.log("variables2", variables);
             }
+            
+
+            console.log("variables", variables);
             /*
                 code function iGetCalled(b,c) {
                     for (let i = 0; i < 10000; i++) {
@@ -263,7 +276,7 @@ class PerformanceLogger {
                 }
             */
 
-            const args = [];
+            const args = variables.split(",");
             code = `let uuid = ${this.name}.crypto.randomUUID();
                     const [hash, stackTrace] = ${this.name}.logStart("${funcKey}",uuid,${stackTrace});
                     ${functionBody}
