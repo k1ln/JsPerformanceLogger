@@ -1,14 +1,24 @@
-class PerformanceLogger {
+<html>
+
+<body>
+
+</body>
+<script>
+    function iGetCalled() {
+        for (let i = 0; i < 10000; i++) {
+            for (let i = 0; i < 10000; i++) {
+
+            }
+        }
+    }
+
+
+    class PerformanceLogger {
         constructor(name) {
             this.watchedFunctionsMessages = {};
             this.watchedFunctionsStats = {};
             this.name = name;
             this.hex_chr = '0123456789abcdef'.split('');
-            if (this.isNode()) {
-                this.crypto = require('crypto');
-            } else {
-                this.crypto = window.crypto;
-            }
             if (this.md5('hello') != '5d41402abc4b2a76b9719d911017c592') {
                 this.add32 = function (x, y) {
                     var lsw = (x & 0xFFFF) + (y & 0xFFFF),
@@ -286,3 +296,42 @@ class PerformanceLogger {
             return func;
         }
     }
+
+    class b {
+        constructor() {
+            this.a = 1;
+        }
+
+        iGetCalled() {
+            for (let i = 0; i < 10000; i++) {
+                for (let i = 0; i < 10000; i++) {
+
+                }
+            }
+        }
+        iiGetCalled() {
+            for (let i = 0; i < 10; i++) {
+                this.iGetCalled();    
+            }
+        }
+    }
+
+    const pL = new PerformanceLogger("pL");
+    let bb = new b();
+    pL.watch(bb, "iGetCalled", true);
+    pL.watch(window, "iGetCalled", true);
+    //console.log(iGetCalled.toString());
+
+    iGetCalled();
+    iGetCalled();
+    iGetCalled();
+    iGetCalled();
+    bb.iGetCalled();
+    bb.iiGetCalled();
+
+    console.log(pL.watchedFunctionsStats);
+    console.log(pL.watchedFunctionsMessages);
+
+</script>
+
+</html>
