@@ -1,19 +1,4 @@
-<html>
-
-<body>
-
-</body>
-<script>
-    function iGetCalled() {
-        for (let i = 0; i < 10000; i++) {
-            for (let i = 0; i < 10000; i++) {
-
-            }
-        }
-    }
-
-
-    class PerformanceLogger {
+class PerformanceLogger {
         constructor(name) {
             this.watchedFunctionsMessages = {};
             this.watchedFunctionsStats = {};
@@ -296,42 +281,3 @@
             return func;
         }
     }
-
-    class b {
-        constructor() {
-            this.a = 1;
-        }
-
-        iGetCalled() {
-            for (let i = 0; i < 10000; i++) {
-                for (let i = 0; i < 10000; i++) {
-
-                }
-            }
-        }
-        iiGetCalled() {
-            for (let i = 0; i < 10; i++) {
-                this.iGetCalled();    
-            }
-        }
-    }
-
-    const pL = new PerformanceLogger("pL");
-    let bb = new b();
-    pL.watch(bb, "iGetCalled", true);
-    pL.watch(window, "iGetCalled", true);
-    //console.log(iGetCalled.toString());
-
-    iGetCalled();
-    iGetCalled();
-    iGetCalled();
-    iGetCalled();
-    bb.iGetCalled();
-    bb.iiGetCalled();
-
-    console.log(pL.watchedFunctionsStats);
-    console.log(pL.watchedFunctionsMessages);
-
-</script>
-
-</html>
