@@ -1,4 +1,4 @@
-# PerformanceLogger
+# jsPerformanceLogger
 A lightweight utility for logging and analyzing performance metrics in JavaScript applications.
 
 ## Overview
@@ -14,3 +14,12 @@ Easily integrate PerformanceLogger into your existing codebase with minimal setu
 ### Node.js Support 
 Compatible with both browser-based and Node.js environments.
 
+## Usage
+
+```javascript
+  pL = new PerformanceLogger("pL"); //Please give constructor Variable Name as string;
+  pL.watch({name of Object}, "{function Name as string}", true);
+  // e.g. pL.watch(window, "someFunc", true);
+  console.log(pL.watchedFunctionsStats);
+  console.log(pL.watchedFunctionsMessages);
+```
