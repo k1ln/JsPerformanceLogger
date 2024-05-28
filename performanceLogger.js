@@ -272,16 +272,6 @@ class PerformanceLogger {
                 variables = functionVariables;
                 console.log("variables2", variables);
             }
-            
-
-            console.log("variables", variables);
-            /*
-                code function iGetCalled(b,c) {
-                    for (let i = 0; i < 10000; i++) {
-                        console.log("IgetCalled");
-                    }
-                }
-            */
 
             const args = variables.split(",");
             code = `let uuid = ${this.name}.crypto.randomUUID();
