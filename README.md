@@ -26,6 +26,7 @@ Compatible with both browser-based and Node.js environments.
 ## Usage nodejs 
 
 ```javascript
+  // You need global PerformanceLogger object written exactly as PerformanceLogger
   PerformanceLogger = require('function-performance-logger');
   PerformanceLogger.watch({name of Object}, "{function Name as string}", true);
   // e.g. PerformanceLogger.watch(window, "someFunc", true);
