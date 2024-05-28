@@ -1,0 +1,62 @@
+<html>
+<head>
+    <script src="function-performance-logger.js"></script>
+</head>
+<body>
+
+</body>
+
+<script>
+    function iGetCalled() {
+        for (let i = 0; i < 10000; i++) {
+            for (let i = 0; i < 10000; i++) {
+
+            }
+        }
+    }
+
+
+   
+
+    class b {
+        constructor() {
+            this.a = 1;
+        }
+
+        objIGetCalled(a) {
+            for (let i = 0; i < a; i++) {
+                for (let i = 0; i < a; i++) {
+
+                }
+            }
+        }
+        iiGetCalled(a) {
+            for (let i = 0; i < 10; i++) {
+                this.objIGetCalled(a);    
+            }
+        }
+    }
+
+   
+    let bb = new b();
+    PerformanceLogger.watch(bb, "objIGetCalled", true);
+    PerformanceLogger.watch(window, "iGetCalled", true);
+    //console.log(iGetCalled.toString());
+
+    iGetCalled();
+    iGetCalled();
+    iGetCalled();
+    iGetCalled();
+    bb.objIGetCalled(10000);
+    bb.iiGetCalled(10000);
+
+    
+
+    console.log(PerformanceLogger.watchedFunctionsStats);
+    console.log(PerformanceLogger.watchedFunctionsMessages);
+
+</script>
+<body>
+    <div id="bla"></div>
+</body>
+</html>
