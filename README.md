@@ -14,9 +14,19 @@ Easily integrate PerformanceLogger into your existing codebase with minimal setu
 ### Node.js Support 
 Compatible with both browser-based and Node.js environments.
 
-## Usage
+## Usage web
 
 ```javascript
+  PerformanceLogger.watch({name of Object}, "{function Name as string}", true);
+  // e.g. PerformanceLogger.watch(window, "someFunc", true);
+  console.log(PerformanceLogger.watchedFunctionsStats);
+  console.log(PerformanceLogger.watchedFunctionsMessages);
+```
+
+## Usage nodejs 
+
+```javascript
+  PerformanceLogger = require('function-performance-logger');
   PerformanceLogger.watch({name of Object}, "{function Name as string}", true);
   // e.g. PerformanceLogger.watch(window, "someFunc", true);
   console.log(PerformanceLogger.watchedFunctionsStats);
