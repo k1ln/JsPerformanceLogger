@@ -1,5 +1,5 @@
 # function-performance-logger
-A lightweight utility for logging and analyzing performance metrics in JavaScript applications.
+A lightweight utility for logging and analyzing function performance in JavaScript applications.
 
 ## Overview
 PerformanceLogger is a class designed to provide insight into the performance of JavaScript functions. By logging the start and end times of function executions, as well as optional stack traces, it allows developers to identify potential bottlenecks and optimize code for improved efficiency.
