@@ -1,4 +1,4 @@
-# jsPerformanceLogger
+# function-performance-logger
 A lightweight utility for logging and analyzing performance metrics in JavaScript applications.
 
 ## Overview
