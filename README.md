@@ -25,6 +25,11 @@ Compatible with both browser-based and Node.js environments.
 
 ## Usage nodejs 
 
+install with:
+```sh
+npm i function-performance-logger
+```
+
 ```javascript
   // You need global PerformanceLogger object written exactly as PerformanceLogger
   PerformanceLogger = require('function-performance-logger');
